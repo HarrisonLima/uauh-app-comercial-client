@@ -17,7 +17,7 @@ interface IEstab {
 
 const DesvincularFilial = () => {
   const params = useParams();
-  const paramsCnpj = params.cnpj!;
+    const paramsCnpj = params.cnpj ? params.cnpj : "";
   const { setModal, setType } = useModalContext();
   const { REMOVE_Filial } = useCredenciamentoCliente();
   const { cnpjMask } = useMask();

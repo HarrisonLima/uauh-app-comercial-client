@@ -45,7 +45,7 @@ interface IUsuario {
 
 const TransferCredenciamento = () => {
   const params = useParams();
-  const paramsCnpj = params.cnpj!;
+  const paramsCnpj = params.cnpj ? params.cnpj : "";
   const { setModal, setType } = useModalContext();
   const { TRANSFER_Cliente } = useCredenciamentoCliente();
   const [loading, setLoading] = useState(true);
@@ -136,7 +136,7 @@ const TransferCredenciamento = () => {
             }
           );
 
-          let listaUsuarios: IUsuario[] = [];
+          const listaUsuarios: IUsuario[] = [];
 
           newUsuarios.forEach((usuario: any) => {
             const updatedUsuario = {
@@ -153,7 +153,7 @@ const TransferCredenciamento = () => {
           setCredenciadores(listaUsuarios);
         }
       } catch (error) {
-        console.error("Erro ao buscar produtos:", error);
+        throw new Error(`Erro ao buscar produtos: ${error}`);
       } finally {
         setLoading(false);
       }

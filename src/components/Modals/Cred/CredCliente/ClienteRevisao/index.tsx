@@ -109,7 +109,7 @@ interface IMatriz {
 
 const ClienteRevisao = () => {
   const params = useParams();
-  const paramsCnpj = params.cnpj!;
+  const paramsCnpj = params.cnpj ? params.cnpj : "";
   const { GET_Profile } = useCookies();
   const profile = GET_Profile();
   const { modal, setModal } = useModalContext();
@@ -287,7 +287,7 @@ const ClienteRevisao = () => {
           setJustificativa(updatedJustificativa);
         }
 
-        let listaRepresentantes: IRepresentante[] = [];
+        const listaRepresentantes: IRepresentante[] = [];
         representantes.forEach((representante: any) => {
           const updateRepresentante: IRepresentante = {
             nome: representante["Nome"],
@@ -302,7 +302,7 @@ const ClienteRevisao = () => {
           listaRepresentantes.push(updateRepresentante);
         });
 
-        let listaCondicoes: ICondicao[] = [];
+        const listaCondicoes: ICondicao[] = [];
         condicoesComerciais.forEach((condicao: any) => {
           const updateCondicao: ICondicao = {
             produto: condicao["Produto"],

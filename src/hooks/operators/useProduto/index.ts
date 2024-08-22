@@ -5,7 +5,7 @@ import updateData from "../../../api/Restfull/update";
 
 const useProduto = () => {
   const { data, setProduto } = useProdutoContext();
- const { setModal, setType } = useModalContext();
+  const { setModal, setType } = useModalContext();
 
   const ADD_Produto = () => {
     setType("Message");
@@ -16,8 +16,7 @@ const useProduto = () => {
             setProduto("");
             setModal("SucessoCadastrar");
           })
-          .catch((error) => {
-            console.log(`Erro na requisição: ${error}`);
+          .catch(() => {
             setModal("FalhaCadastrar");
           })
       : setModal("PreencherTodosCampos");
@@ -31,8 +30,7 @@ const useProduto = () => {
           .then(() => {
             setModal("SucessoAtualizarCadastro");
           })
-          .catch((error) => {
-            console.log(`Erro na requisição: ${error}`);
+          .catch(() => {
             setModal("FaildUpdate");
           })
       : setModal("PreencherTodosCampos");

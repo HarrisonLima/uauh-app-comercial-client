@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from "react";
+/* eslint-disable no-unused-vars */
+import { createContext, ReactNode, useContext, useState } from "react";
 
 const initialUsuario = {
   perfilAcesso: "",
@@ -8,27 +9,37 @@ const initialUsuario = {
   situacao: "",
 };
 
-export const UsuarioContext = createContext<{
+interface IContext {
   data: typeof initialUsuario;
   setPerfilAcesso: (perfilAcesso: string) => void;
   setUsuario: (usuario: string) => void;
   setSenha: (senha: string) => void;
   setNome: (nome: string) => void;
   setSituacao: (situacao: string) => void;
-}>({
+}
+
+const noOp = () => {
+  throw new Error("Function must be implemented in the Provider.");
+};
+
+export const UsuarioContext = createContext<IContext>({
   data: initialUsuario,
-  setPerfilAcesso: () => {},
-  setUsuario: () => {},
-  setSenha: () => {},
-  setNome: () => {},
-  setSituacao: () => {},
+  setPerfilAcesso: noOp,
+  setUsuario: noOp,
+  setSenha: noOp,
+  setNome: noOp,
+  setSituacao: noOp,
 });
 
 export const useUsuarioContext = () => {
   return useContext(UsuarioContext);
 };
 
-export const UsuarioProvider = ({ children }: any) => {
+interface IProvider {
+  children: ReactNode;
+}
+
+export const UsuarioProvider = ({ children }: IProvider) => {
   const [data, setData] = useState(initialUsuario);
 
   const setPerfilAcesso = (perfilAcesso: string) => {
@@ -37,7 +48,7 @@ export const UsuarioProvider = ({ children }: any) => {
       perfilAcesso: perfilAcesso,
     }));
   };
-  
+
   const setUsuario = (usuario: string) => {
     setData((prevState) => ({
       ...prevState,
@@ -66,7 +77,7 @@ export const UsuarioProvider = ({ children }: any) => {
     }));
   };
 
-  const dataContext = {
+  const contextValue: IContext = {
     data: data,
     setPerfilAcesso: setPerfilAcesso,
     setUsuario: setUsuario,
@@ -76,7 +87,7 @@ export const UsuarioProvider = ({ children }: any) => {
   };
 
   return (
-    <UsuarioContext.Provider value={dataContext}>
+    <UsuarioContext.Provider value={contextValue}>
       {children}
     </UsuarioContext.Provider>
   );

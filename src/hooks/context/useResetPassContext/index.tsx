@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from "react";
+/* eslint-disable no-unused-vars */
+import { createContext, ReactNode, useContext, useState } from "react";
 
 const initialResetPass = {
   id: 0,
@@ -6,23 +7,33 @@ const initialResetPass = {
   reseted: false,
 };
 
-export const ResetPassContext = createContext<{
+interface IContext {
   dataResetPass: typeof initialResetPass;
   setId: (id: number) => void;
   setPassword: (password: string) => void;
   setReset: (reseted: boolean) => void;
-}>({
+}
+
+const noOp = () => {
+  throw new Error("Function must be implemented in the Provider.");
+};
+
+export const ResetPassContext = createContext<IContext>({
   dataResetPass: initialResetPass,
-  setId: () => {},
-  setPassword: () => {},
-  setReset: () => {},
+  setId: noOp,
+  setPassword: noOp,
+  setReset: noOp,
 });
 
 export const useResetPassContext = () => {
   return useContext(ResetPassContext);
 };
 
-export const ResetPassProvider = ({ children }: any) => {
+interface IProvider {
+  children: ReactNode;
+}
+
+export const ResetPassProvider = ({ children }: IProvider) => {
   const [dataResetPass, setDataResetPass] = useState(initialResetPass);
 
   const setId = (id: number) => {
@@ -46,7 +57,7 @@ export const ResetPassProvider = ({ children }: any) => {
     }));
   };
 
-  const dataContext = {
+  const contextValue: IContext = {
     dataResetPass: dataResetPass,
     setId: setId,
     setPassword: setPassword,
@@ -54,7 +65,7 @@ export const ResetPassProvider = ({ children }: any) => {
   };
 
   return (
-    <ResetPassContext.Provider value={dataContext}>
+    <ResetPassContext.Provider value={contextValue}>
       {children}
     </ResetPassContext.Provider>
   );

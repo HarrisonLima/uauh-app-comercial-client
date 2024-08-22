@@ -31,7 +31,7 @@ interface IRegistro {
 
 const HistoricoCredenciamento = () => {
   const params = useParams();
-  const paramsCnpj = params.cnpj!;
+    const paramsCnpj = params.cnpj ? params.cnpj : "";
   const { setModal, setType } = useModalContext();
   const { parseToReal, parseToPercentual } = useFormatter();
   const [registros, setRegistros] = useState<IRegistro[]>([]);

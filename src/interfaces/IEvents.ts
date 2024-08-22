@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export default interface IEvents {
   onClick?: () => void;
   onChange?: (value: any) => void;

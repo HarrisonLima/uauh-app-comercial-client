@@ -31,7 +31,7 @@ interface IMatriz {
 
 const CredenciarFilial = () => {
   const params = useParams();
-  const paramsCnpj = params.cnpj!;
+    const paramsCnpj = params.cnpj ? params.cnpj : "";
   const [selectedRadioOption, setSelectedRadioOption] = useState("");
   const { setModal, setType } = useModalContext();
   const { ADD_Filial, LINK_Filial } = useCredenciamentoCliente();

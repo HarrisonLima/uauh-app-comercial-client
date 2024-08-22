@@ -12,7 +12,7 @@ const Checkbox = ({
   const [checked, setChecked] = useState(optionDefault);
 
   const handleClick = () => {
-    onChange!(!checked);
+    onChange ? onChange(!checked) : null;
     setChecked(!checked);
   };
 

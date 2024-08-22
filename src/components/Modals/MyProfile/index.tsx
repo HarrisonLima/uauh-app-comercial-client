@@ -57,7 +57,7 @@ const ModalMyProfile = () => {
       if (user) {
         setUsuario(user);
       } else {
-        console.error("Usuário não encontrado.");
+        throw new Error("Usuário não encontrado.");
       }
     };
 
@@ -91,7 +91,7 @@ const ModalMyProfile = () => {
           UPDATE_Usuario(data);
         })
         .catch((error) => {
-          console.log(`Erro na requisição: ${error}`);
+          throw new Error(`Erro na requisição: ${error}`);
         });
     };
 
@@ -133,7 +133,7 @@ const ModalMyProfile = () => {
         <Text fontText="Meu perfil" icon={faUser} variant="h1" />
         <div className="modal-my-profile__content">
           <Text
-          variant="h2"
+            variant="h2"
             fontText={`${profile.nome}(${profile.usuario}) - ${profile.perfil}`}
           />
           <form>

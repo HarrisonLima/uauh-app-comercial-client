@@ -34,7 +34,7 @@ export default async function updateData(
       return responseData;
     }
   } catch (error) {
-    console.error(`Erro na requisição: ${error}`);
+    throw new Error(`Erro na requisição: ${error}`);
     throw error;
   }
 }

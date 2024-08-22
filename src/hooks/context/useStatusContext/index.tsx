@@ -1,25 +1,36 @@
-import { createContext, useContext, useState } from "react";
+/* eslint-disable no-unused-vars */
+import { createContext, ReactNode, useContext, useState } from "react";
 
 const initialStatus = {
   status: "",
   situacao: "",
 };
 
-export const StatusContext = createContext<{
+interface IContext {
   data: typeof initialStatus;
   setStatus: (status: string) => void;
   setSituacao: (situacao: string) => void;
-}>({
+}
+
+const noOp = () => {
+  throw new Error("Function must be implemented in the Provider.");
+};
+
+export const StatusContext = createContext<IContext>({
   data: initialStatus,
-  setStatus: () => {},
-  setSituacao: () => {},
+  setStatus: noOp,
+  setSituacao: noOp,
 });
 
 export const useStatusContext = () => {
   return useContext(StatusContext);
 };
 
-export const StatusProvider = ({ children }: any) => {
+interface IProvider {
+  children: ReactNode;
+}
+
+export const StatusProvider = ({ children }: IProvider) => {
   const [data, setData] = useState(initialStatus);
 
   const setStatus = (status: string) => {
@@ -36,14 +47,14 @@ export const StatusProvider = ({ children }: any) => {
     }));
   };
 
-  const dataContext = {
+  const contextValue: IContext = {
     data: data,
     setStatus: setStatus,
     setSituacao: setSituacao,
   };
 
   return (
-    <StatusContext.Provider value={dataContext}>
+    <StatusContext.Provider value={contextValue}>
       {children}
     </StatusContext.Provider>
   );

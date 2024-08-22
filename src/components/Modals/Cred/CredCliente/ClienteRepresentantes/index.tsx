@@ -61,7 +61,7 @@ interface IMatriz {
 const ClienteRepresentantes = () => {
   const [status, setStatus] = useState();
   const params = useParams();
-  const paramsCnpj = params.cnpj!;
+  const paramsCnpj = params.cnpj ? params.cnpj : "";
   const { GET_Profile } = useCookies();
   const profile = GET_Profile();
   const [representantes, setRepresentantes] = useState<ICliente[]>([]);
@@ -374,7 +374,7 @@ const ClienteRepresentantes = () => {
 
   const insertArray = () => {
     const isValid = validInsertion();
-    let lista: any = [...representantes];
+    const lista: any = [...representantes];
     if (isValid) {
       object.CPF = object.CPF.replace(/[.-]/g, "");
       object.Telefone = object.Telefone.replace(/\+55|\(|\)|-|\s/g, "");
@@ -400,7 +400,7 @@ const ClienteRepresentantes = () => {
   };
 
   const handleClick = () => {
-    let analized: ICliente[] = [];
+    const analized: ICliente[] = [];
     let pendingAnalysis: ICliente[] = [];
 
     if (representantes.length > 0) {

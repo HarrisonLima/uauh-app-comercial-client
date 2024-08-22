@@ -1,25 +1,36 @@
-import { createContext, useContext, useState } from "react";
+/* eslint-disable no-unused-vars */
+import { createContext, ReactNode, useContext, useState } from "react";
 
 const initialPerfilAcesso = {
   perfilAcesso: "",
   situacao: "",
 };
 
-export const PerfilAcessoContext = createContext<{
+interface IContext {
   data: typeof initialPerfilAcesso;
   setPerfilAcesso: (perfilAcesso: string) => void;
   setSituacao: (situacao: string) => void;
-}>({
+}
+
+const noOp = () => {
+  throw new Error("Function must be implemented in the Provider.");
+};
+
+export const PerfilAcessoContext = createContext<IContext>({
   data: initialPerfilAcesso,
-  setPerfilAcesso: () => {},
-  setSituacao: () => {},
+  setPerfilAcesso: noOp,
+  setSituacao: noOp,
 });
 
 export const usePerfilAcessoContext = () => {
   return useContext(PerfilAcessoContext);
 };
 
-export const PerfilAcessoProvider = ({ children }: any) => {
+interface IProvider {
+  children: ReactNode;
+}
+
+export const PerfilAcessoProvider = ({ children }: IProvider) => {
   const [data, setData] = useState(initialPerfilAcesso);
 
   const setPerfilAcesso = (perfilAcesso: string) => {
@@ -36,14 +47,14 @@ export const PerfilAcessoProvider = ({ children }: any) => {
     }));
   };
 
-  const dataContext = {
+  const contextValue: IContext = {
     data: data,
     setPerfilAcesso: setPerfilAcesso,
     setSituacao: setSituacao,
   };
 
   return (
-    <PerfilAcessoContext.Provider value={dataContext}>
+    <PerfilAcessoContext.Provider value={contextValue}>
       {children}
     </PerfilAcessoContext.Provider>
   );

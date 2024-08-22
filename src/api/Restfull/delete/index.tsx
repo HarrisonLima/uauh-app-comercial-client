@@ -17,7 +17,7 @@ export default async function deleteData(object: string, id: number | string) {
       return data;
     }
   } catch (error) {
-    console.error("Erro na requisição: ", error);
+    throw new Error(`Erro na requisição: ${error}`);
     throw error;
   }
 }

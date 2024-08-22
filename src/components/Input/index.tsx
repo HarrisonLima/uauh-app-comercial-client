@@ -67,7 +67,7 @@ const Input = ({
         value={inputValue}
         width={size[0]}
         onChange={(event) => handleInputChange(event.target.value)}
-        onBlur={() => onChange!([inputValue, validator])}
+        onBlur={() => (onChange ? onChange([inputValue, validator]) : null)}
       />
     );
     setInputJSX(inputComponent);
@@ -83,7 +83,7 @@ const Input = ({
       );
       setValidator(newValidator);
       setInputValue(value);
-      onChange!([value, newValidator]);
+      onChange ? onChange([value, newValidator]) : null;
     }
   };
 
@@ -117,7 +117,7 @@ const Input = ({
       clearTelefoneMask,
     } = useMask();
     const characters = value.toString().replace(/\D/g, "");
-  
+
     switch (validationType) {
       case "CPF":
         return characters.length === 11

@@ -78,10 +78,10 @@ const useLogin = () => {
           const responseData = await response.json();
           ADD_Profile(responseData.user);
         } catch (error) {
-          console.error("Erro ao validar token:", error);
           setType("Message");
           setModal("FalhaRequisicao");
           Logout();
+          throw new Error(`Erro ao validar token: ${error}`);
         }
       };
 

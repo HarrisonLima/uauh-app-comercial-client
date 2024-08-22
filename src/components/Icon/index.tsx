@@ -25,7 +25,12 @@ const Icon = ({
       onClick={onClick}
       title={title}
     >
-      <FontAwesomeIcon icon={icon!} style={{ height: "100%", width: "100%" }} />
+      {icon ? (
+        <FontAwesomeIcon
+          icon={icon}
+          style={{ height: "100%", width: "100%" }}
+        />
+      ) : null}
     </span>
   );
 };

@@ -24,7 +24,7 @@ const Dropdown = ({
 
   const handleOptionClick = (option: IOption) => {
     setSelectedOption(option.id);
-    onChange!(option);
+    onChange ? onChange(option) : null;
     setExpandOptions(false);
   };
 

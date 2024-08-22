@@ -61,7 +61,7 @@ interface ICondicao {
 
 const useProposta = () => {
   const params = useParams();
-  const paramsCnpj = params.cnpj!;
+    const paramsCnpj = params.cnpj ? params.cnpj : "";
   const { cnpjMask, cepMask } = useMask();
   const { parseToPercentual, parseToReal } = useFormatter();
 

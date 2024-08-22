@@ -13,8 +13,7 @@ const useCliente = () => {
       .then(() => {
         setModal("SucessoCredenciarCliente");
       })
-      .catch((error) => {
-        console.log(`Erro na requisição: ${error}`);
+      .catch(() => {
         setModal("FalhaCredenciarCliente");
       });
   };
@@ -26,8 +25,7 @@ const useCliente = () => {
       .then(() => {
         setModal("SucessoAtualizarCliente");
       })
-      .catch((error) => {
-        console.log(`Erro na requisição: ${error}`);
+      .catch(() => {
         setModal("FalhaAtualizarCliente");
       });
   };
@@ -39,8 +37,7 @@ const useCliente = () => {
       .then(() => {
         setModal("SucessoAtualizarCliente");
       })
-      .catch((error) => {
-        console.log(`Erro na requisição: ${error}`);
+      .catch(() => {
         setModal("FalhaAtualizarCliente");
       });
   };
@@ -52,8 +49,7 @@ const useCliente = () => {
       .then(() => {
         setModal("SucessoAtualizarCliente");
       })
-      .catch((error) => {
-        console.log(`Erro na requisição: ${error}`);
+      .catch(() => {
         setModal("FalhaAtualizarCliente");
       });
   };
@@ -65,8 +61,7 @@ const useCliente = () => {
       .then(() => {
         setModal("SucessoAtualizarCliente");
       })
-      .catch((error) => {
-        console.log(`Erro na requisição: ${error}`);
+      .catch(() => {
         setModal("FalhaAtualizarCliente");
       });
   };
@@ -78,8 +73,7 @@ const useCliente = () => {
       .then(() => {
         setModal("SucessoAtualizarCliente");
       })
-      .catch((error) => {
-        console.log(`Erro na requisição: ${error}`);
+      .catch(() => {
         setModal("FalhaAtualizarCliente");
       });
   };
@@ -91,8 +85,7 @@ const useCliente = () => {
       .then(() => {
         setModal("SucessoAtualizarCliente");
       })
-      .catch((error) => {
-        console.log(`Erro na requisição: ${error}`);
+      .catch(() => {
         setModal("FalhaAtualizarCliente");
       });
   };
@@ -102,8 +95,7 @@ const useCliente = () => {
       .then(() => {
         setModal("SucessoReprovarCliente");
       })
-      .catch((error) => {
-        console.log(`Erro na requisição: ${error}`);
+      .catch(() => {
         setModal("FalhaReprovarCliente");
       });
   };
@@ -115,8 +107,7 @@ const useCliente = () => {
       .then(() => {
         setModal("SucessoRetornarCliente");
       })
-      .catch((error) => {
-        console.log(`Erro na requisição: ${error}`);
+      .catch(() => {
         setModal("FalhaRetornarCliente");
       });
   };
@@ -128,8 +119,7 @@ const useCliente = () => {
       .then(() => {
         setModal("SucessoReprovarExclusaoCliente");
       })
-      .catch((error) => {
-        console.log(`Erro na requisição: ${error}`);
+      .catch(() => {
         setModal("FalhaReprovarExclusaoCliente");
       });
   };
@@ -141,8 +131,7 @@ const useCliente = () => {
       .then(() => {
         setModal("EnviarCredenciamentoExclusao");
       })
-      .catch((error) => {
-        console.log(`Erro na requisição: ${error}`);
+      .catch(() => {
         setModal("FalhaRequisição");
       });
   };
@@ -154,8 +143,7 @@ const useCliente = () => {
       .then(() => {
         setModal("SucessoRemanejarCliente");
       })
-      .catch((error) => {
-        console.log(`Erro na requisição: ${error}`);
+      .catch(() => {
         setModal("FalhaRemanejarCliente");
       });
   };
@@ -167,8 +155,7 @@ const useCliente = () => {
       .then(() => {
         setModal("SucessoObservacaoCliente");
       })
-      .catch((error) => {
-        console.log(`Erro na requisição: ${error}`);
+      .catch(() => {
         setModal("FalhaObservarCliente");
       });
   };
@@ -180,8 +167,7 @@ const useCliente = () => {
       .then(() => {
         setModal("SucessoAtualizarObservacaoCliente");
       })
-      .catch((error) => {
-        console.log(`Erro na requisição: ${error}`);
+      .catch(() => {
         setModal("FalhaAtualizarObservarCliente");
       });
   };
@@ -193,8 +179,7 @@ const useCliente = () => {
       .then(() => {
         setModal("ExcluirObservacaoCliente");
       })
-      .catch((error) => {
-        console.log(`Erro na requisição: ${error}`);
+      .catch(() => {
         setModal("FalhaExcluirObservacaoCliente");
       });
   };
@@ -206,8 +191,7 @@ const useCliente = () => {
       .then(() => {
         setModal("SucessoCredenciarCliente");
       })
-      .catch((error) => {
-        console.log(`Erro na requisição: ${error}`);
+      .catch(() => {
         setModal("FalhaCredenciarCliente");
       });
   };
@@ -219,8 +203,7 @@ const useCliente = () => {
       .then(() => {
         setModal("SucessoDesvincularFilial");
       })
-      .catch((error) => {
-        console.log(`Erro na requisição: ${error}`);
+      .catch(() => {
         setModal("FalhaDesvincularFilial");
       });
   };
@@ -232,8 +215,7 @@ const useCliente = () => {
       .then(() => {
         setModal("SucessoVincularFilial");
       })
-      .catch((error) => {
-        console.log(`Erro na requisição: ${error}`);
+      .catch(() => {
         setModal("FalhaVincularFilial");
       });
   };

@@ -13,11 +13,9 @@ const isValidCnpj = (cnpj: string): boolean => {
           weights: number[]
         ): number => {
           let sum = 0;
-          let factor = position;
 
           for (let i = 0; i < position; i++) {
             sum += numericCnpj[i] * weights[i];
-            factor--;
           }
 
           const remainder = sum % 11;

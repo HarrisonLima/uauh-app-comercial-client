@@ -28,7 +28,7 @@ export default async function postData(object: string, bodyData: any | any[]) {
       return responseData;
     }
   } catch (error) {
-    console.error(`Erro na requisição: ${error}`);
+    throw new Error(`Erro na requisição: ${error}`);
     throw error;
   }
 }

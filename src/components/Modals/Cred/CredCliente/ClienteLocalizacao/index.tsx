@@ -41,7 +41,7 @@ interface IMatriz {
 const ClienteLocalizacao = () => {
   const [status, setStatus] = useState();
   const params = useParams();
-  const paramsCnpj = params.cnpj!;
+    const paramsCnpj = params.cnpj ? params.cnpj : "";
   const { GET_Profile } = useCookies();
   const profile = GET_Profile();
   const { UPDATE_Localizacao } = useCredenciamentoCliente();
@@ -300,7 +300,7 @@ const ClienteLocalizacao = () => {
             }));
           }
         } catch (error) {
-          console.error("Erro na requisição: ", error);
+          throw new Error(`Erro na requisição: ${error}`);
         }
       };
 

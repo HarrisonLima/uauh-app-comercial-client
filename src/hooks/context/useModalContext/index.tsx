@@ -1,29 +1,40 @@
-import { createContext, useContext, useState } from "react";
+/* eslint-disable no-unused-vars */
+import { createContext, ReactNode, useContext, useState } from "react";
 
 const initialModal = {
   modal: "",
   type: "",
 };
 
-export const ModalContext = createContext<{
+interface IContext {
   modal: typeof initialModal;
   setModal: (modal: string) => void;
   setType: (type: string) => void;
-}>({
+}
+
+const noOp = () => {
+  throw new Error("Function must be implemented in the Provider.");
+};
+
+export const ModalContext = createContext<IContext>({
   modal: initialModal,
-  setModal: () => {},
-  setType: () => {},
+  setModal: noOp,
+  setType: noOp,
 });
 
 export const useModalContext = () => {
   return useContext(ModalContext);
 };
 
-export const ModalProvider = ({ children }: any) => {
+interface IProvider {
+  children: ReactNode;
+}
+
+export const ModalProvider = ({ children }: IProvider) => {
   const [modalObject, setModalObject] = useState(initialModal);
 
   const setModal = (modal: string) => {
-    setModalObject((prevState) => ({ 
+    setModalObject((prevState) => ({
       ...prevState,
       modal: modal,
     }));
@@ -36,14 +47,14 @@ export const ModalProvider = ({ children }: any) => {
     }));
   };
 
-  const dataContext = {
+  const contextValue: IContext = {
     modal: modalObject,
     setModal: setModal,
     setType: setType,
   };
 
   return (
-    <ModalContext.Provider value={dataContext}>
+    <ModalContext.Provider value={contextValue}>
       {children}
     </ModalContext.Provider>
   );

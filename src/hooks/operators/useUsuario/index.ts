@@ -24,8 +24,7 @@ const useUsuario = () => {
             setNome("");
             setModal("SucessoCadastrar");
           })
-          .catch((error) => {
-            console.log(`Erro na requisição: ${error}`);
+          .catch(() => {
             setModal("FalhaCadastrar");
           })
       : setModal("PreencherTodosCampos");
@@ -43,8 +42,7 @@ const useUsuario = () => {
           .then(() => {
             setModal("SucessoAtualizarCadastro");
           })
-          .catch((error) => {
-            console.log(`Erro na requisição: ${error}`);
+          .catch(() => {
             setModal("FaildUpdate");
           })
       : setModal("PreencherTodosCampos");
@@ -57,8 +55,7 @@ const useUsuario = () => {
       .then(() => {
         setModal("SucessoRedefinirSenha");
       })
-      .catch((error) => {
-        console.log(`Erro na requisição: ${error}`);
+      .catch(() => {
         setModal("FalhaRedefinirSenha");
       });
   };

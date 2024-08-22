@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useEffect, useState } from "react";
 import { isArray } from "lodash";
 import {
@@ -32,19 +33,19 @@ const Table = ({
   const [tableJSX, setTableJSX] = useState<JSX.Element | null>(null);
 
   const handleEdit = (data: any) => {
-    onEdit!(data);
+    onEdit ? onEdit(data) : null;
   };
 
   const handleBond = (data: any) => {
-    onBond!(data);
+    onBond ? onBond(data) : null;
   };
 
   const handleResetPassword = (data: any) => {
-    onResetPassword!(data);
+    onResetPassword ? onResetPassword(data) : null;
   };
 
   const handleLink = (data: any) => {
-    onLink!(data);
+    onLink ? onLink(data) : null;
   };
 
   const findIndexColumn = (column: string) => {
@@ -57,8 +58,8 @@ const Table = ({
     const filter = () => {
       let filteredData = response;
 
-      if (filters && filters!.length > 0) {
-        filters!.forEach((filter) => {
+      if (filters && filters.length > 0) {
+        filters.forEach((filter) => {
           const key = Object.keys(filter)[0];
           const index = findIndexColumn(key);
           const value = filter[key];
@@ -153,10 +154,12 @@ const Table = ({
       <table className="table">
         <thead>
           <tr>
-            {header!.map(
-              (title: string, index: number) =>
-                title !== "id" && <th key={index}>{title}</th>
-            )}
+            {header
+              ? header.map(
+                  (title: string, index: number) =>
+                    title !== "id" && <th key={index}>{title}</th>
+                )
+              : null}
             {actions && <th key="actions">Ações</th>}
           </tr>
         </thead>

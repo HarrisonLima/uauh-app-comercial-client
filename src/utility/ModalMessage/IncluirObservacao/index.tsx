@@ -26,7 +26,7 @@ interface ICliente {
 
 const IncluirObservacao = () => {
   const params = useParams();
-  const paramsCnpj = params.cnpj!;
+    const paramsCnpj = params.cnpj ? params.cnpj : "";
   const { GET_Profile } = useCookies();
   const profile = GET_Profile();
   const { setModal, setType } = useModalContext();

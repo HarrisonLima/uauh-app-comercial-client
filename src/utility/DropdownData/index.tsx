@@ -2,14 +2,16 @@ export default function DropdownData(
   json: boolean,
   data: any[],
   readIn?: any,
-  activedItems: boolean = true
+  activedItems = true
 ) {
-  
+  const hasOwnProperty = Object.prototype.hasOwnProperty;
+
   return json
     ? activedItems
       ? data
           .filter(
-            (obj) => obj.hasOwnProperty(readIn) && obj.Situação === "Ativo"
+            (obj) =>
+              hasOwnProperty.call(obj, readIn) && obj.Situação === "Ativo"
           )
           .map((obj) => {
             return {
@@ -18,7 +20,7 @@ export default function DropdownData(
             };
           })
       : data
-          .filter((obj) => obj.hasOwnProperty(readIn))
+          .filter((obj) => hasOwnProperty.call(obj, readIn))
           .map((obj) => {
             return {
               id: obj.id,

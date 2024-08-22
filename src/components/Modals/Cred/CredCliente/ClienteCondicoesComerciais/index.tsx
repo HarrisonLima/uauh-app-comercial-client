@@ -79,7 +79,7 @@ const ClienteCondicoesComerciais = () => {
   >([]);
   const [status, setStatus] = useState();
   const params = useParams();
-  const paramsCnpj = params.cnpj!;
+  const paramsCnpj = params.cnpj ? params.cnpj : "";
   const { GET_Profile } = useCookies();
   const profile = GET_Profile();
   const { modal } = useModalContext();
@@ -137,7 +137,7 @@ const ClienteCondicoesComerciais = () => {
         const result = await getData("produtos");
         setProdutos(result);
       } catch (error) {
-        console.error("Erro ao buscar produtos:", error);
+        throw new Error(`Erro ao buscar produtos: ${error}`);
       } finally {
         setLoading(false);
       }
@@ -494,7 +494,7 @@ const ClienteCondicoesComerciais = () => {
 
   const insertArray = () => {
     const isValid = validInsertion();
-    let lista: any = [...condicoesComerciais];
+    const lista: any = [...condicoesComerciais];
 
     if (isValid) {
       object["Saque incluso?"] =
@@ -546,7 +546,7 @@ const ClienteCondicoesComerciais = () => {
   };
 
   const handleClick = () => {
-    let analized: ICliente[] = [];
+    const analized: ICliente[] = [];
     let pendingAnalysis: ICliente[] = [];
 
     condicoesComerciais.forEach((condicao: ICliente) => {

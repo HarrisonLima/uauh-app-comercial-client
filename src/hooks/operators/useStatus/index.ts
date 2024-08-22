@@ -16,8 +16,7 @@ const useStatus = () => {
             setStatus("");
             setModal("SucessoCadastrar");
           })
-          .catch((error) => {
-            console.log(`Erro na requisição: ${error}`);
+          .catch(() => {
             setModal("FalhaCadastrar");
           })
       : setModal("PreencherTodosCampos");
@@ -31,8 +30,7 @@ const useStatus = () => {
           .then(() => {
             setModal("SucessoAtualizarCadastro");
           })
-          .catch((error) => {
-            console.log(`Erro na requisição: ${error}`);
+          .catch(() => {
             setModal("FaildUpdate");
           })
       : setModal("PreencherTodosCampos");

@@ -19,7 +19,7 @@ export default async function getData(object: string, id?: number | string) {
       return data;
     }
   } catch (error) {
-    console.error("Erro na requisição: ", error);
+    throw new Error(`Erro na requisição: ${error}`);
     throw error;
   }
 }

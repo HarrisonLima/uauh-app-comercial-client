@@ -14,7 +14,7 @@ const useCookies = () => {
   const GET_Profile = () => {
     const profile = { usuario: "", nome: "", perfil: "" };
     const cookieValue = document.cookie.replace(
-      /(?:(?:^|.*;\s*)perfil\s*\=\s*([^;]*).*$)|^.*$/,
+      /(?:(?:^|.*;\s*)perfil\s*=\s*([^;]*).*$)|^.*$/,
       "$1"
     );
 

@@ -47,7 +47,12 @@ const ModalInfo = ({
     <ModalStructure modalVariant="ComponentsArea">
       <div className="modal-info__content">
         <div className="modal-info__content__title">
-          <Text icon={faClock} variant="h1" theme={variant} fontText={title!} />
+          <Text
+            icon={faClock}
+            variant="h1"
+            theme={variant}
+            fontText={title ? title : ""}
+          />
         </div>
         <div className="modal-info__content__subtitle">
           <div className="modal-info__content__message">

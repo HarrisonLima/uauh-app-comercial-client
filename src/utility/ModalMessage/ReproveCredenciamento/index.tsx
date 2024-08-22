@@ -25,7 +25,7 @@ interface ICliente {
 
 const ReproveCredenciamentoCliente = () => {
   const params = useParams();
-  const paramsCnpj = params.cnpj!;
+    const paramsCnpj = params.cnpj ? params.cnpj : "";
   const { GET_Profile } = useCookies();
   const [message, setMessage] = useState();
   const profile = GET_Profile();
