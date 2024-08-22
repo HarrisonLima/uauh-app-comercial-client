@@ -1,0 +1,19 @@
+[
+  {
+    "Cliente": {
+      "Identificação": "/credenciamento/cliente/identificacao",
+      "Localização": "/credenciamento/cliente/localizacao",
+      "Representantes": "/credenciamento/cliente/representantes",
+      "Condições comerciais": "/credenciamento/cliente/condicoes-comerciais",
+      "Revisão": "/credenciamento/cliente/revisao"
+    },
+    "Credencial": {
+      "Identificação": "/credenciamento/credencial/identificacao",
+      "Localização": "/credenciamento/credencial/localizacao",
+      "Representantes": "/credenciamento/credencial/representantes",
+      "Condições comerciais": "/credenciamento/credencial/condicoes-comerciais",
+      "Dados bancários": "/credenciamento/credencial/dados-bancarios",
+      "Revisão": "/credenciamento/credencial/revisao"
+    }
+  }
+]

@@ -1,0 +1,30 @@
+.select {
+  display: flex;
+  gap: 1.5rem;
+
+  @include respond(tab-land) {
+    gap: 1rem;
+  }
+
+  @include respond(phone) {
+    gap: 0.5rem;
+  }
+
+  &__box {
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+
+    & > p {
+      color: $color-primary;
+      font-size: 1.1rem;
+      font-weight: 700;
+
+      @include respond(tab-land) {
+        font-size: 1rem;
+      }
+    }
+  }
+}

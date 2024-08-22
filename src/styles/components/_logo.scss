@@ -1,0 +1,20 @@
+.logo {
+  cursor: pointer;
+  width: 8rem;
+
+  @include respond(tab-land) {
+    width: 6rem;
+  }
+
+  @include respond(phone) {
+    width: 4rem;
+  }
+
+  &__box {
+    align-items: center;
+    background-color: $color-primary;
+    display: flex;
+    justify-content: center;
+    padding: 1rem 0;
+  }
+}

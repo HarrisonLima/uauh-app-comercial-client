@@ -1,0 +1,52 @@
+.button {
+  & {
+    align-items: center;
+    border-radius: 0.5rem;
+    color: $color-white;
+    cursor: pointer;
+    display: flex;
+    gap: 1rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+    justify-content: center;
+    padding: 0.5rem 2.5rem;
+    transition: 0.3s all ease-in-out;
+  }
+
+  @include respond(tab-land) {
+    font-size: 1rem;
+    padding: 0.5rem 2rem;
+  }
+
+  &:hover {
+    gap: 1.5rem;
+    transform: translateY(-0.25em);
+  }
+
+  &:focus {
+    transform: translateY(-0.125em);
+  }
+
+  &--alert {
+    @include button-theme($color-orange);
+  }
+
+  &--danger {
+    @include button-theme($color-red);
+  }
+
+  &--disabled {
+    border: 0.0625rem solid $color-gray-400;
+    color: $color-gray-700;
+    font-weight: 500;
+    @include button-theme($color-gray-300);
+  }
+
+  &--primary {
+    @include button-theme($color-primary);
+  }
+
+  &--sucess {
+    @include button-theme($color-green);
+  }
+}

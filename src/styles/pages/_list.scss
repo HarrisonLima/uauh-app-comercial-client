@@ -1,0 +1,46 @@
+.list {
+  &__filters {
+    align-items: end;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+
+    @include respond(tab-land) {
+      gap: 1rem;
+    }
+
+    &__box {
+      border-bottom: 0.0625rem solid $color-gray-400;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 2rem;
+      padding: 1.5rem 2rem;
+
+      @include respond(tab-land) {
+        margin-bottom: 1.5rem;
+        padding: 1.25rem 0;
+      }
+
+      @include respond(phone) {
+        margin-bottom: 1rem;
+        padding: 1rem 0;
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5rem;
+
+    @include respond(tab-land) {
+      margin-top: 1rem;
+    }
+
+    & > a {
+      @include respond(tab-land) {
+        font-size: 0.875rem;
+      }
+    }
+  }
+}

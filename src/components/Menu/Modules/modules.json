@@ -1,0 +1,52 @@
+[
+  {
+    "Cadastro": {
+      "Perfil Acesso": {
+        "path": "/cadastro/perfil-acesso",
+        "acess": ["Administrador"]
+      },
+      "Produto": {
+        "path": "/cadastro/produto",
+        "acess": ["Administrador"]
+      },
+      "Status": {
+        "path": "/cadastro/status",
+        "acess": ["Administrador"]
+      },
+      "Usuário": {
+        "path": "/cadastro/usuario",
+        "acess": ["Administrador"]
+      }
+    },
+    "Consulta": {
+      "Cliente": {
+        "path": "/consulta/cliente",
+        "acess": ["Administrador", "Aprovador", "Credenciador", "Gerência"]
+      }
+    },
+    "Credenciamento": {
+      "Cliente": {
+        "path": "/credenciamento/cliente",
+        "acess": ["Administrador", "Aprovador", "Credenciador", "Gerência"]
+      }
+    },
+    "Listagem": {
+      "Perfil Acesso": {
+        "path": "/listagem/perfis",
+        "acess": ["Administrador", "Gerência"]
+      },
+      "Produto": {
+        "path": "/listagem/produtos",
+        "acess": ["Administrador", "Aprovador", "Credenciador", "Gerência"]
+      },
+      "Status": {
+        "path": "/listagem/status",
+        "acess": ["Administrador", "Gerência"]
+      },
+      "Usuário": {
+        "path": "/listagem/usuarios",
+        "acess": ["Administrador", "Gerência"]
+      }
+    }
+  }
+]

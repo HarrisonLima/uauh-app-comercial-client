@@ -1,0 +1,122 @@
+.input {
+  appearance: none;
+  background-color: transparent;
+  border: 0.0625rem solid $color-gray-400;
+  border-radius: 0.5rem;
+  color: $color-gray-700;
+  font-size: 1rem;
+  font-weight: 500;
+  height: 3rem;
+  padding-inline: 1rem;
+  outline: none;
+  text-overflow: ellipsis;
+  transition: 0.3s all ease-in-out;
+
+  @include respond(tab-land) {
+    font-size: 0.875rem;
+  }
+
+  &--sm {
+    width: 8rem;
+
+    @include respond(tab-land) {
+      width: 6rem;
+    }
+  }
+
+  &--md {
+    width: 14rem;
+
+    @include respond(tab-land) {
+      width: 12rem;
+    }
+  }
+
+  &--lg {
+    width: 20rem;
+
+    @include respond(tab-land) {
+      width: 18rem;
+    }
+  }
+
+  &--xl {
+    width: 100%;
+  }
+
+  &::placeholder {
+    color: $color-gray-600;
+  }
+
+  &:hover {
+    box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.3);
+    transition: 0.3s all ease-in-out;
+  }
+
+  &:focus {
+    border: 0.125rem solid $color-gray-900;
+  }
+
+  &:disabled {
+    background-color: $color-gray-300;
+    border-color: $color-gray-400;
+    cursor: no-drop;
+
+    &::placeholder {
+      color: $color-gray-700;
+    }
+  }
+
+  &[aria-invalid="true"] {
+    border: 0.125rem solid $color-red;
+  }
+
+  &[type="number"]::-webkit-inner-spin-button,
+  &[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  &__container {
+    border: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    position: relative;
+
+    &:has(.input--xl) {
+      width: 100%;
+    }
+  }
+
+  &__label {
+    align-items: flex-start;
+    color: $color-gray-600;
+    display: inline-block;
+    font-weight: 500;
+
+    @include respond(tab-land) {
+      font-size: 0.875rem;
+    }
+
+    &:hover {
+      color: $color-gray-700;
+    }
+  }
+
+  &__message {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: $color-red;
+    position: absolute;
+    margin-top: 0.5rem;
+    top: 100%;
+    z-index: 1;
+
+    @include respond(phone) {
+      margin-top: 0.25rem;
+      font-weight: 700;
+      font-size: 0.75rem;
+    }
+  }
+}

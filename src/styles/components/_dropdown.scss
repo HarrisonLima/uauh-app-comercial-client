@@ -1,0 +1,122 @@
+.dropdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  &:has(.dropdown__select--xl) {
+    width: 100%;
+  }
+
+  &__label {
+    color: $color-gray-600;
+    font-weight: 500;
+
+    @include respond(tab-land) {
+      font-size: 0.875rem;
+    }
+
+    &:hover {
+      color: $color-gray-700;
+    }
+  }
+
+  &__container {
+    position: relative;
+    overflow: visible;
+  }
+
+  &__select {
+    align-items: center;
+    background-color: transparent;
+    border: 0.0625rem solid $color-gray-400;
+    border-radius: 0.5rem;
+    color: $color-gray-600;
+    cursor: pointer;
+    display: flex;
+    font-weight: 500;
+    height: 3rem;
+    padding: 0 0.5rem;
+    position: relative;
+
+    @include respond(tab-land) {
+      font-size: 0.875rem;
+    }
+
+    &--sm {
+      width: 12rem;
+
+      @include respond(tab-land) {
+        width: 10rem;
+      }
+    }
+
+    &--md {
+      width: 14rem;
+
+      @include respond(tab-land) {
+        width: 12rem;
+      }
+    }
+
+    &--lg {
+      width: 20rem;
+
+      @include respond(tab-land) {
+        width: 18rem;
+      }
+    }
+
+    &--xl {
+      width: 100%;
+    }
+  }
+
+  &__icon {
+    align-items: center;
+    background-color: $color-primary;
+    border: 0.125rem solid $color-primary;
+    border-radius: 0 0.5rem 0.5rem 0;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem;
+    height: 100%;
+    position: absolute;
+    right: 0;
+  }
+
+  &__list {
+    background-color: $color-white;
+    border: 0.0625rem solid $color-gray-400;
+    border-radius: 0.5rem;
+    display: none;
+    left: 0;
+    list-style-type: none;
+    margin-top: 1rem;
+    overflow: visible;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    z-index: 1000;
+
+    &[aria-expanded="true"] {
+      display: block;
+    }
+
+    &__option {
+      cursor: pointer;
+      font-size: 0.875rem;
+      padding: 0.5rem;
+      transition: 0.2s all ease-in-out;
+
+      &:hover {
+        background-color: $color-gray-300;
+      }
+
+      &--actived {
+        background-color: $color-primary !important;
+        color: $color-white;
+        cursor: default;
+      }
+    }
+  }
+}

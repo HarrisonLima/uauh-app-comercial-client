@@ -1,0 +1,67 @@
+.icon {
+  &--sm {
+    height: 1rem;
+    width: 1rem;
+
+    @include respond(tab-land) {
+      height: 0.875rem;
+      width: 0.875rem;
+    }
+  }
+
+  &--md {
+    height: 1.5rem;
+    width: 1.5rem;
+
+    @include respond(tab-land) {
+      height: 1.25rem;
+      width: 1.25rem;
+    }
+  }
+
+  &--lg {
+    height: 2rem;
+    width: 2rem;
+
+    @include respond(tab-land) {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+  }
+
+  &--primary {
+    color: $color-primary;
+  }
+
+  &--black {
+    color: $color-black;
+  }
+
+  &--gray {
+    color: $color-gray-700;
+  }
+
+  &--green {
+    color: $color-green;
+  }
+
+  &--orange {
+    color: $color-orange;
+  }
+
+  &--red {
+    color: $color-red;
+  }
+
+  &--white {
+    color: $color-white;
+  }
+
+  &--button {
+    cursor: pointer;
+  }
+
+  &--static {
+    cursor: default;
+  }
+}

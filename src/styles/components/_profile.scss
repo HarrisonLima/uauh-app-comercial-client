@@ -1,0 +1,14 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+
+  &__sub {
+    display: flex;
+    gap: .5rem;
+
+    &__icon {
+      display: flex;
+    }
+  }
+}

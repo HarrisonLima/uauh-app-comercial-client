@@ -1,0 +1,64 @@
+.checkbox {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+
+  @include respond(tab-land) {
+    gap: 0.5rem;
+  }
+
+  &__input {
+    appearance: none;
+    background-color: transparent;
+    border: 0.0625rem solid $color-gray-500;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    height: 1.25rem;
+    outline: none;
+    transition: 0.3s all ease-in-out;
+    width: 1.25rem;
+
+    @include respond(tab-land) {
+      height: 1rem;
+      width: 1rem;
+    }
+
+    &:checked,
+    &:focus {
+      border-color: $color-primary;
+    }
+
+    &:hover,
+    &:focus {
+      box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.24);
+    }
+
+    &:checked {
+      background-color: $color-primary;
+    }
+
+    &:hover {
+      border-color: $color-gray-600;
+    }
+  }
+
+  &__label {
+    color: $color-gray-600;
+    font-weight: 500;
+    transition: 0.3s all ease-in-out;
+
+    @include respond(tab-land) {
+      font-size: 0.875rem;
+    }
+
+    &:hover {
+      color: $color-gray-700;
+    }
+
+    &--through {
+      color: $color-gray-600;
+      font-weight: 500;
+      text-decoration: line-through;
+    }
+  }
+}

@@ -1,0 +1,88 @@
+.text-box {
+  border-radius: 0.5rem;
+  overflow: hidden;
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    padding: 0.5rem 4rem;
+
+    @include respond(laptop) {
+      justify-content: space-around;
+      padding: 0.5rem 0;
+    }
+
+    &__item {
+      align-items: center;
+      display: flex;
+      gap: 0.75rem;
+
+      & > p {
+        color: $color-white;
+
+        @include respond(tab-land) {
+          font-size: 0.875rem;
+        }
+      }
+
+      & > p:nth-child(2n - 1) {
+        font-weight: 700;
+      }
+    }
+
+    &--alert {
+      background-color: $color-orange;
+    }
+
+    &--danger {
+      background-color: $color-red;
+    }
+
+    &--disabled {
+      background-color: $color-gray-400;
+    }
+
+    &--default {
+      background-color: $color-primary;
+    }
+
+    &--sucess {
+      background-color: $color-green;
+    }
+  }
+
+  &__message {
+    border: none;
+    font-size: 1rem;
+    height: 12rem;
+    line-height: 1.5rem;
+    max-height: 20rem;
+    min-height: 10rem;
+    min-width: 100%;
+    outline: none;
+    padding: 0.75rem 2rem;
+    text-align: justify;
+    width: 100%;
+  }
+
+  &--alert {
+    border: 0.125rem solid $color-orange;
+  }
+
+  &--danger {
+    border: 0.125rem solid $color-red;
+  }
+
+  &--disabled {
+    border: 0.125rem solid $color-gray-400;
+  }
+
+  &--default {
+    border: 0.125rem solid $color-primary;
+  }
+
+  &--sucess {
+    border: 0.125rem solid $color-green;
+  }
+}

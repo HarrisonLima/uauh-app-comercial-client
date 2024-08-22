@@ -1,0 +1,55 @@
+.menu {
+  padding: 1rem 1.5rem;
+
+  > nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    > ul {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+      list-style: none;
+
+      > div {
+        border-bottom: 0.0625rem solid $color-gray-400;
+        padding-bottom: 0.25rem;
+      }
+
+      > li {
+        cursor: pointer;
+        padding: 0 1rem;
+        position: relative;
+
+        &::before {
+          background-color: $color-gray-400;
+          bottom: -0.125rem;
+          content: "";
+          height: 0.125rem;
+          left: 0;
+          position: absolute;
+          transition: width 0.5s ease-out;
+          width: 0;
+        }
+
+        &:hover::before {
+          width: 75%;
+        }
+      }
+    }
+  }
+
+  &__profile,
+  &__exit {
+    padding: 1rem 1.5rem;
+  }
+
+  &__profile {
+    border-bottom: 0.0625rem solid $color-gray-400;
+  }
+
+  &__exit {
+    border-top: 0.0625rem solid $color-gray-400;
+  }
+}

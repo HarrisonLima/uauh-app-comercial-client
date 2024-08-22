@@ -1,0 +1,56 @@
+@mixin button-theme($color) {
+  background-color: $color;
+  border: 0.0625rem solid $color;
+
+  &:hover {
+    box-shadow: 0 0.25rem 0.75rem $color;
+  }
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == small-phone {
+    @media only screen and (max-width: 360px) {
+      @content;
+    }
+  }
+  @if $breakpoint == phone {
+    @media only screen and (max-width: 480px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    @media only screen and (max-width: 720px) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+  }
+  @if $breakpoint == small-laptop {
+    @media only screen and (max-width: 1028px) {
+      @content;
+    }
+  }
+  @if $breakpoint == laptop {
+    @media only screen and (max-width: 1280px) {
+      @content;
+    }
+  }
+  @if $breakpoint == desktop {
+    @media only screen and (max-width: 1600px) {
+      @content;
+    }
+  }
+  @if $breakpoint == big-desktop {
+    @media only screen and (min-width: 1600px) and (max-width: 1920px) {
+      @content;
+    }
+  }
+  @if $breakpoint == widescreen {
+    @media only screen and (min-width: 1920px) {
+      @content;
+    }
+  }
+}
