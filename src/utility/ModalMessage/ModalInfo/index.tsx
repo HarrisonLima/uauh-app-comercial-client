@@ -1,9 +1,5 @@
-
 import { useModalContext } from "../../../hooks/context/useModalContext";
-import { faClock } from "@fortawesome/free-solid-svg-icons";
-
-import IIcon from "../../../interfaces/IIcon";
-import IText from "../../../interfaces/IText";
+import { faClock, IconDefinition } from "@fortawesome/free-solid-svg-icons";
 
 import ModalStructure from "../../../components/Modals/Structure";
 import Icon from "../../../components/Icon";
@@ -16,10 +12,9 @@ const ModalInfo = ({
   fontText,
   icon,
   reload = true,
-}: IIcon &
-  IText & { title?: string } & {
-    variant: "alert" | "danger" | "default" | "disabled" | "sucess";
-  } & { reload?: boolean }) => {
+}: { icon: IconDefinition } & { fontText: string } & { title?: string } & {
+  variant: "alert" | "danger" | "default" | "disabled" | "sucess";
+} & { reload?: boolean }) => {
   const { setModal, setType } = useModalContext();
 
   const handleClose = () => {

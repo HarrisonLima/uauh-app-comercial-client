@@ -1,9 +1,5 @@
 import { useState } from "react";
-
 import IEvents from "../../interfaces/IEvents";
-
-import Text from "../Text";
-import Colors from "../../utility/Colors";
 
 interface IHeader {
   [key: string]: string;

@@ -2,7 +2,6 @@ import { useState } from "react";
 import { faCaretDown, faCaretLeft } from "@fortawesome/free-solid-svg-icons";
 import IEvents from "../../interfaces/IEvents";
 import IList from "../../interfaces/IList";
-import IText from "../../interfaces/IText";
 import Icon from "../Icon";
 
 interface IOption {
@@ -17,8 +16,9 @@ const Dropdown = ({
   size = "md",
   value,
 }: IEvents &
-  IList &
-  IText & { value?: any } & { size?: "sm" | "md" | "lg" | "xl" }) => {
+  IList & { fontText: string } & { value?: any } & {
+    size?: "sm" | "md" | "lg" | "xl";
+  }) => {
   const [selectedOption, setSelectedOption] = useState(0);
   const [expandOptions, setExpandOptions] = useState(false);
 
@@ -39,7 +39,10 @@ const Dropdown = ({
           {value
             ? value
             : selectedOption
-            ? options.find((option) => option.id === selectedOption)?.text
+            ? options.find(
+                (option: { id: number; text: any }) =>
+                  option.id === selectedOption
+              )?.text
             : "Ver opções..."}
           <div className="dropdown__icon">
             <Icon

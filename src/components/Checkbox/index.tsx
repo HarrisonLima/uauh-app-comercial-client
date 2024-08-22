@@ -1,14 +1,14 @@
 import { useState } from "react";
 import IEvents from "../../interfaces/IEvents";
-import IText from "../../interfaces/IText";
 
 const Checkbox = ({
   fontText,
   styledText = false,
   onChange,
   optionDefault = false,
-}: IEvents &
-  IText & { styledText?: boolean } & { optionDefault?: boolean }) => {
+}: IEvents & { styledText?: boolean } & { optionDefault?: boolean } & {
+  fontText: string;
+}) => {
   const [checked, setChecked] = useState(optionDefault);
 
   const handleClick = () => {
@@ -26,9 +26,7 @@ const Checkbox = ({
         defaultChecked={checked}
       />
       <label
-        className={`checkbox__label${
-          styledText && checked ? "--through" : ""
-        }`}
+        className={`checkbox__label${styledText && checked ? "--through" : ""}`}
         htmlFor="checkbox"
       >
         {fontText}

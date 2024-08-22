@@ -1,5 +1,4 @@
 import IEvents from "../../interfaces/IEvents";
-import IText from "./../../interfaces/IText";
 import Icon from "../Icon";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
@@ -8,10 +7,9 @@ const Button = ({
   fontText,
   icon,
   onClick,
-}: IEvents &
-  IText & {
+}: IEvents & {
     variant?: "alert" | "danger" | "disabled" | "primary" | "sucess";
-  } & { icon?: IconDefinition }) => {
+  } & { icon?: IconDefinition } & { fontText: string }) => {
   return (
     <button
       className={`button button--${variant}`}

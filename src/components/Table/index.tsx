@@ -21,7 +21,7 @@ const Table = ({
 }: {
   header: string[];
   response: any[][];
-  actions?: ["Bond" | "Edit" | "Reset" | "Link"];
+  actions?: ("Bond" | "Edit" | "Reset" | "Link")[];
   onEdit?: (data: any) => void;
   onBond?: (data: any) => void;
   onResetPassword?: (id: number) => void;

@@ -42,7 +42,6 @@ const ModalLogin = () => {
             <Text
               fontText="Acesse com seu usuário e senha"
               variant="h3"
-              fontSize="1.125rem"
             />
           </div>
           <form>
